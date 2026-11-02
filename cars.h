@@ -10,17 +10,19 @@
 
 #include <string>;
 
+using namespace std;
+
 struct EngineStats{
     int horsepower;
     int torque;
-    EngineSats(int horsepower_, int torque_);
+    EngineStats(const int& horsepower_, const int& torque_);
 };
 
 struct Dimensions{
     int height;
     int length;
     int width;
-    Dimensions(int height_, int length_, int width_);
+    Dimensions(const int& height_, const int& length_, const int& width_);
 };
 
 struct EngineInfo{
@@ -30,14 +32,15 @@ struct EngineInfo{
     int gears;
     string transmission;
     EngineStats stats;
-    EngineInfo(string driveline_, string type_, bool hybrid_, int gears_, string transmission_, EngineStats stats_);
+    EngineInfo(const string& driveline_, const string& type_, const bool& hybrid_, const int& gears_,
+        const string& transmission_, const EngineStats& stats_);
 };
 
 struct FuelInfo{
     int mpg_city;
     string type;
     int mpg_highway;
-    FuelInfo(int mpg_city_, string type_, int mpg_highway_);
+    FuelInfo(const int& mpg_city_, const string& type_, const int& mpg_highway_);
 };
 
 struct Identification{
@@ -46,7 +49,8 @@ struct Identification{
     string make;
     string model_year;
     int year;
-    Identification(string classification_, string id_, string make_, string model_year_, int year_);
+    Identification(const string& classification_, const string& id_, const string& make_,
+        const string& model_year_, const int& year_);
 };
 
 struct Car{
@@ -54,7 +58,8 @@ struct Car{
     EngineInfo engine;
     FuelInfo fuel;
     Identification iden;
-    Car(Dimensions dimen_, EngineInfo engine_, FuelInfo fuel_, Identification iden_);
+    Car(const Dimensions& dimen_, const EngineInfo& engine_, const FuelInfo& fuel_,
+        const Identification& iden_);
 };
 
 #endif //PROJECT_2_DSA_CARS_H
