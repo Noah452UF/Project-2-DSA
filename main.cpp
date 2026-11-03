@@ -2,7 +2,8 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
- // placeholder, carter might set up the file names differently
+#include "cars.cpp"
+#include "heap.cpp"
 #include <json.hpp>
 using json = nlohmann::json;
 using namespace std;
@@ -70,10 +71,32 @@ vector<Car> readJson(const string& filename) {
     return cars;
 }
 
+unordered_map<string, string> readSortingRequirements(const string& filename) {
+
+    ifstream file(filename);
+    if (!file.is_open()) {
+        throw runtime_error("could not open: " + filename);
+    }
+
+    unordered_map<string, string> sortingReqs;
+    json reqsData; 
+    file >> reqsData;
+
+    for (auto& [key, value] : reqsData.items()) {
+        sortingReqs[key] = value;
+    }
+
+    return sortingReqs;
+
+
+}
+
 int main() {
     vector<Car> cars = readJson("cars.json");
 
-    //get requirements for sorting from json file?
+    unordered_map<string, string> sortingReqs = readSortingRequirements("requirements.json");
+
+    string dataStructure = sortingReqs["data_structure"];
 
     // make B+ data structure with sorting requirements
     BPlus(bool (*operation)(car,car));
