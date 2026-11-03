@@ -1,0 +1,46 @@
+Explanation of example requirements
+
+
+"isB++" : "true",
+    if false use heap
+
+"sortby": 1,
+Options to sort by:
+1: horsepower
+2: year
+3: gas mileage
+
+
+
+
+REQUIREMENTS:
+(its possible to not have any requirements though!)
+
+"year": 2015
+
+
+"horsepow": [100,200],
+range of potential horsepowers
+
+
+"gasmileage": [20,25],
+range of potential gas mileage
+
+"driveline": 1,
+Options to sort by:
+1:All-wheel drive/Four-wheel Drive
+2:Front-wheel drive
+3:Rear-wheel drive
+
+
+"Brand": 1
+Options to sort by:
+1:Honda
+2:Toyota
+3:Ford
+4:Volkswagen 
+5:Hyundai 
+6:Nissan 
+7:Kia 
+8:Chevrolet
+
