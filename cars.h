@@ -8,7 +8,7 @@
 #ifndef PROJECT_2_DSA_CARS_H
 #define PROJECT_2_DSA_CARS_H
 
-#include <string>;
+#include <string>
 
 using namespace std;
 
