@@ -5,6 +5,7 @@
 #include "cars.cpp"
 #include "heap.cpp"
 #include <json.hpp>
+#include <chrono>
 using json = nlohmann::json;
 using namespace std;
 
@@ -71,6 +72,7 @@ vector<Car> readJson(const string& filename) {
     return cars;
 }
 
+// read requirements.json and store data in unordered map
 unordered_map<string, string> readSortingRequirements(const string& filename) {
 
     ifstream file(filename);
@@ -98,11 +100,28 @@ int main() {
 
     string dataStructure = sortingReqs["data_structure"];
 
-    // make B+ data structure with sorting requirements
-    BPlus(bool (*operation)(car,car));
+    if (dataStructure == "B+") {
+        auto start = chrono::high_resolution_clock::now();
 
-    // make heap data structure with sorting requirements
-    Heap(bool (*operation)(car,car));
+        // make B+ data
+
+        auto end = chrono::high_resolution_clock::now();
+        auto duration = end - start;
+
+        string time = "Time using B+ tree: " + to_string(chrono::duration_cast<chrono::milliseconds>(duration).count());
+    }
+    else if (dataStructure == "heap") {
+        auto start = chrono::high_resolution_clock::now();
+
+        // make heap data
+
+        auto end = chrono::high_resolution_clock::now();
+        auto duration = end - start;
+
+        string time = "Time using a heap: " + to_string(chrono::duration_cast<chrono::milliseconds>(duration).count());
+    }
+
+    
 
     //put the top n cars into another json file so front end can read them
     
