@@ -1,5 +1,5 @@
 // Author: Carter Veit
-// Description: Declares prototype for cars structure for use
+// Description: Defines functions for heap class for use
 //              in project 2.
 //
 // Last Modified: November 2, 2026
@@ -62,7 +62,7 @@ void Heap::heapify_up(const int &node) {
     }
 }
 
-void Heap::insert(Car n) {
+void Heap::insert(const Car& n) {
     // Add new object to end of vector.
     arr.push_back(n);
     // Heapify up to sort new object into the heap
