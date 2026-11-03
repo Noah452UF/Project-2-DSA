@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Choices</title>
+    <script src="options.js" defer></script>
+  </head>
+  <body>
+
+
+
+    
+  
+   
+<!-- Everything in sidebar for options panel -->
+
+<div class="optionspanel"></div>
+    <div class="dropdown">
+        <button class="button1">B++ or Heap Sort?⌄</button>
+        <div class="options">
+            <p onclick="addtojsonfromdropdown">B++ tree</p>
+            <p onclick="addtojsonfromdropdown">Heap sort</p>
+        </div>
+    </div>
+
+
+     <div class="dropdown">
+        <button class="button1">Sort By⌄</button>
+    </div>
+
+
+
+ <!-- If Run button clicked, add everything to a json file and run the c++ file -->
+
+
+<!-- Display in a table once loaded-->
+    
+<style>    
+
+
+body {
+    background-color: white;
+    color: black;
+    margin: 0px;
+    position: relative;
+    height: auto;
+    width: 100%;
+    }
+
+.optionspanel {
+    margin-left: 30px;
+    width:300px;
+    padding: 50px;
+    background-color: white;
+    color: black;
+    display:inline;
+    flex-wrap:balance;
+}
+
+.dropdown{
+    background-color: white;
+    color: black;
+    flex-wrap:balance;
+    display:block;
+    padding-top:40px;
+    margin-left:5%;
+}
+
+.options {
+    color:black;
+    display:none;
+    font-size:large;
+}
+
+.dropdown:hover .options {
+    display:block;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    font-size:large;
+    display:block;
+}
+
+</style>
+
+</body>
+</html>
