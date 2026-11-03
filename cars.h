@@ -60,6 +60,7 @@ struct Car{
     Identification iden;
     Car(const Dimensions& dimen_, const EngineInfo& engine_, const FuelInfo& fuel_,
         const Identification& iden_);
+    bool operator==(const Car& other);
 };
 
 #endif //PROJECT_2_DSA_CARS_H
