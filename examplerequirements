@@ -1,8 +1,8 @@
 Explanation of example requirements
 
 
-"isB++" : "true",
-    if false use heap
+"isB++" : 0,
+    if 0 use B++ if 1 use heap 
 
 "sortby": 1,
 Options to sort by:
@@ -19,11 +19,13 @@ REQUIREMENTS:
 "year": 2015
 
 
-"horsepow": [100,200],
+"horsepow1": 100
+"horsepow2": 200,
 range of potential horsepowers
 
 
-"gasmileage": [20,25],
+"gasmileage1": 20,,
+"gasmileage2": 25,
 range of potential gas mileage
 
 "driveline": 1,

@@ -1,8 +1,10 @@
 {
-    "isB++" : "true",
+    "isB++" : 0,
     "sortby": 1,
-    "horsepow": [100,200],
-    "gasmileage": [20,25],
+    "horsepow1": 100,
+    "horsepow2": 200,
+    "gasmileage": 20,
+    "gasmileage": 25,
     "driveline": 1,
     "Brand": 1
 }
