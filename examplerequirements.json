@@ -3,8 +3,8 @@
     "sortby": 1,
     "horsepow1": 100,
     "horsepow2": 200,
-    "gasmileage": 20,
-    "gasmileage": 25,
+    "gasmileage1": 20,
+    "gasmileage2": 25,
     "driveline": 1,
     "Brand": 1
 }
