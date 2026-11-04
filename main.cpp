@@ -91,12 +91,56 @@ unordered_map<string, json> readSortingRequirements(const string& filename) {
     return sortingReqs;
 }
 
+// writes the top cars to results.json
+void writeResults(const vector<Car>& topCars, string& time, const string& filename){
+    
+    // add the top cars to resultsJson
+    json resultsJson;
+    for (const auto& car : topCars) {
+        // json car object
+        json carJson;
+
+        // create the json structure for each car
+        carJson["Dimensions"]["Height"] = car.dimen.height;
+        carJson["Dimensions"]["Length"] = car.dimen.length;
+        carJson["Dimensions"]["Width"] = car.dimen.width;
+
+        carJson["Engine Information"]["Driveline"] = car.engine.driveline;
+        carJson["Engine Information"]["Engine Type"] = car.engine.type;
+        carJson["Engine Information"]["Hybrid"] = car.engine.hybrid;
+        carJson["Engine Information"]["Number of Forward Gears"] = car.engine.gears;
+        carJson["Engine Information"]["Transmission"] = car.engine.transmission;
+        carJson["Engine Information"]["Engine Statistics"]["HorsePower"] = car.engine.stats.horsepower;
+        carJson["Engine Information"]["Engine Statistics"]["Torque"] = car.engine.stats.torque;
+
+        carJson["Fuel Information"]["City mpg"] = car.fuel.mpg_city;
+        carJson["Fuel Information"]["Fuel Type"] = car.fuel.type;
+        carJson["Fuel Information"]["Highway mpg"] = car.fuel.mpg_highway;
+
+        carJson["Identification"]["Classification"] = car.iden.classification;
+        carJson["Identification"]["ID"] = car.iden.id;
+        carJson["Identification"]["Make"] = car.iden.make;
+        carJson["Identification"]["Model Year"] = car.iden.model_year;
+        carJson["Identification"]["Year"] = car.iden.year;
+
+        resultsJson.push_back(carJson);
+    }
+
+    // add time to resultsJson
+    resultsJson["Time"] = time;
+
+    ofstream outFile("results.json");
+    outFile << resultsJson.dump(4);
+    outFile.close();
+
+}
+
 int main() {
     vector<Car> cars = readJson("cars.json");
 
     unordered_map<string, json> sortingReqs = readSortingRequirements("requirements.json");
 
-    string dataStructure = sortingReqs["data_structure"];
+    bool isBPlus = sortingReqs["isB++"];
     string sortBy = sortingReqs["sortby"];
     int horsePower1 = sortingReqs["horsepow1"];
     int horsePower2 = sortingReqs["horsepow2"];
@@ -105,30 +149,49 @@ int main() {
     string driveLine = sortingReqs["driveline"];
     string brand = sortingReqs["Brand"];
 
-    if (dataStructure == "B+") {
+    // if user wants B++ tree
+    if (isBPlus) {
         auto start = chrono::high_resolution_clock::now();
 
-        // make B+ data
+        // make B++ data
+        vector<Car> BPlusTreeCars;
 
+        // get the top five cars
+        vector<Car> topCars;
+        for (int i = 0; i < 5; i++) {
+            topCars.push_back(BPlusTreeCars[i]);
+        }
+        
+        // get time taken to sort cars
         auto end = chrono::high_resolution_clock::now();
         auto duration = end - start;
-
         string time = "Time using B+ tree: " + to_string(chrono::duration_cast<chrono::milliseconds>(duration).count());
+
+        // write the top five cars to results.json
+        writeResults(topCars, time, "results.json");
     }
-    else if (dataStructure == "heap") {
+    // if user wants heap
+    else {
         auto start = chrono::high_resolution_clock::now();
 
         // make heap data
+        vector<Car> heapCars;
 
+        // get the top five cars
+        vector<Car> topCars;
+        for (int i = 0; i < 5; i++) {
+            topCars.push_back(heapCars[i]);
+        }
+        
+        // get time taken to sort cars
         auto end = chrono::high_resolution_clock::now();
         auto duration = end - start;
+        string time = "Time using heap: " + to_string(chrono::duration_cast<chrono::milliseconds>(duration).count());
 
-        string time = "Time using a heap: " + to_string(chrono::duration_cast<chrono::milliseconds>(duration).count());
+        // write the top five cars to results.json
+        writeResults(topCars, time, "results.json");
     }
 
-    
-
-    //put the top n cars into another json file so front end can read them
     
 
     return 0;
