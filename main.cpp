@@ -73,14 +73,14 @@ vector<Car> readJson(const string& filename) {
 }
 
 // read requirements.json and store data in unordered map
-unordered_map<string, string> readSortingRequirements(const string& filename) {
+unordered_map<string, json> readSortingRequirements(const string& filename) {
 
     ifstream file(filename);
     if (!file.is_open()) {
         throw runtime_error("could not open: " + filename);
     }
 
-    unordered_map<string, string> sortingReqs;
+    unordered_map<string, json> sortingReqs;
     json reqsData; 
     file >> reqsData;
 
@@ -89,16 +89,21 @@ unordered_map<string, string> readSortingRequirements(const string& filename) {
     }
 
     return sortingReqs;
-
-
 }
 
 int main() {
     vector<Car> cars = readJson("cars.json");
 
-    unordered_map<string, string> sortingReqs = readSortingRequirements("requirements.json");
+    unordered_map<string, json> sortingReqs = readSortingRequirements("requirements.json");
 
     string dataStructure = sortingReqs["data_structure"];
+    string sortBy = sortingReqs["sortby"];
+    int horsePower1 = sortingReqs["horsepow1"];
+    int horsePower2 = sortingReqs["horsepow2"];
+    int gasMileage1 = sortingReqs["gasmileage1"];
+    int gasMileage2 = sortingReqs["gasmileage2"];
+    string driveLine = sortingReqs["driveline"];
+    string brand = sortingReqs["Brand"];
 
     if (dataStructure == "B+") {
         auto start = chrono::high_resolution_clock::now();
