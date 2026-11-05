@@ -42,6 +42,7 @@ public:
      * Constructor accepts a function pointer with two Car struct parameters and a boolean return.
      * When the return of the function is 1, the first Car input will sort towards the left of the tree.
      * When the return of the function is 0, the second Car input will sort towards the right of the heap.
+     * When cars are equivalent, function must return 0, as the middle will be found in the right tree.
      *
      * @param operation_ Function pointer utilized for sorting insertions
      * @param k_ Number of permitted branches from node. Default value of 3.
