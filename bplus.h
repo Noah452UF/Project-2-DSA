@@ -8,8 +8,9 @@
 #ifndef PROJECT_2_DSA_BPLUS_H
 #define PROJECT_2_DSA_BPLUS_H
 
-#include <cars.h>
+#include "cars.h"
 #include <vector>
+#include <stack>
 
 struct Node {
     vector<Car> arr;
@@ -18,8 +19,9 @@ struct Node {
     Node* next;
     Node* prev;
     bool leaf;
-    Node(const Car& n);
-    Node(vector<Car> arr_);
+    Node(const bool& leaf_);
+    Node(const Car& c, const bool& leaf_);
+    Node(vector<Car> arr_, const bool& leaf_);
 };
 
 class BPlus {
@@ -30,11 +32,13 @@ private:
     Node* tail;
     int k;
 
-    Node* traverseDown(Node* root, const Car& n);
-    Node* split(Node* root);
+    void postOrderDelete(Node* n);
+    Node* traverseDown(stack<pair<Node*, int>>& traversed, Node* n, const Car& c);
+    Node* split(Node* parent, Node* child, const int& child_ind);
 public:
     BPlus(bool (*operation_)(Car,Car), int k_ = 3);
-    void insert(const Car& n);
+    ~BPlus();
+    void insert(const Car& c);
     void getHead();
     void getTail();
 };
