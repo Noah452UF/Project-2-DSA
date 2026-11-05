@@ -87,7 +87,9 @@ Node *BPlus::split(Node *parent, Node* child, const int& child_ind){
     for (int i = 0; i < mid; i++) {
         left.push_back(child->arr[i]);
     }
-    for (int i = mid; i < child->arr.size(); i++) {
+    // When child is leaf, middle is included. When child is not leaf. Middle is excluded form right
+    // split.
+    for (int i = mid + !(child->leaf); i < child->arr.size(); i++) {
         right.push_back(child->arr[i]);
     }
 
@@ -97,6 +99,7 @@ Node *BPlus::split(Node *parent, Node* child, const int& child_ind){
     child_left->next = child_right;
     child_right->prev = child_left;
     child_right->next = child->next;
+    // Check if children are new start or head of leaf linked list
     if (child_left->leaf == 1 && child_left->prev == nullptr) {
         head = child_left;
     }
@@ -164,6 +167,12 @@ void BPlus::insert(const Car &c) {
     }
     // Replace root if necessary.
     root = split(nullptr, child, 0);
+}
 
-    // Check
+Node* BPlus::getHead() {
+    return head;
+}
+
+Node *BPlus::getTail() {
+    return tail;
 }
