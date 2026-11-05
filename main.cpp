@@ -2,8 +2,8 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include "cars.cpp"
-#include "heap.cpp"
+#include "cars.h"
+#include "heap.h"
 #include <json.hpp>
 #include <chrono>
 using json = nlohmann::json;
@@ -29,24 +29,24 @@ vector<Car> readJson(const string& filename) {
         auto fuelInfo = item["Fuel Information"]; //mpg etc
         auto identification = item["Identification"]; // make, "model year"
 
-        Dimensions dimensionsObj(dimensions["Height"], 
-            dimensions["Length"], 
+        Dimensions dimensionsObj(dimensions["Height"],
+            dimensions["Length"],
             dimensions["Width"]
         );
 
         EngineStats engineStatsObj(
-            engineStats["Horsepower"], 
+            engineStats["Horsepower"],
             engineStats["Torque"]
         );
 
         EngineInfo engineInfoObj(
-            engineInfo["Driveline"], 
-            engineInfo["Engine Type"], 
-            engineInfo["Hybrid"], 
+            engineInfo["Driveline"],
+            engineInfo["Engine Type"],
+            engineInfo["Hybrid"],
             engineInfo["Number of Forward Gears"],
             engineInfo["Transmission"],
             engineStatsObj
-            
+
         );
 
         FuelInfo fuelInfoObj(
@@ -81,7 +81,7 @@ unordered_map<string, json> readSortingRequirements(const string& filename) {
     }
 
     unordered_map<string, json> sortingReqs;
-    json reqsData; 
+    json reqsData;
     file >> reqsData;
 
     for (auto& [key, value] : reqsData.items()) {
@@ -93,7 +93,7 @@ unordered_map<string, json> readSortingRequirements(const string& filename) {
 
 // writes the top cars to results.json
 void writeResults(const vector<Car>& topCars, string& time, const string& filename){
-    
+
     // add the top cars to resultsJson
     json resultsJson;
     for (const auto& car : topCars) {
@@ -167,7 +167,7 @@ int main() {
         for (int i = 0; i < 5; i++) {
             topCars.push_back(BPlusTreeCars[i]);
         }
-        
+
         // get time taken to sort cars
         auto end = chrono::high_resolution_clock::now();
         auto duration = end - start;
@@ -188,7 +188,7 @@ int main() {
         for (int i = 0; i < 5; i++) {
             topCars.push_back(heapCars[i]);
         }
-        
+
         // get time taken to sort cars
         auto end = chrono::high_resolution_clock::now();
         auto duration = end - start;

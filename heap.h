@@ -1,5 +1,5 @@
 // Author: Carter Veit
-// Description: Declares prototype for cars structure for use
+// Description: Declares prototype for heap class for use
 //              in project 2.
 //
 // Last Modified: November 2, 2026
@@ -37,7 +37,7 @@ public:
     *
     * @param n Car object to be inserted
     */
-    void insert(Car n);
+    void insert(const Car& n);
     /**
     * @brief Extracts car object from top of heap.
     *

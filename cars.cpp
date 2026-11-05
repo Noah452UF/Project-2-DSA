@@ -1,5 +1,5 @@
 // Author: Carter Veit
-// Description: Declares prototype for cars structure for use
+// Description: Defines functions for cars structure for use
 //              in project 2.
 //
 // Last Modified: November 2, 2026
@@ -44,3 +44,11 @@ Identification::Identification(const string &classification_, const string &id_,
 
 Car::Car(const Dimensions &dimen_, const EngineInfo &engine_, const FuelInfo &fuel_,
     const Identification &iden_) : dimen(dimen_), engine(engine_), fuel(fuel_), iden(iden_) {}
+
+bool Car::operator==(const Car &other) {
+    if (iden.id == other.iden.id) {
+        return true;
+    }
+
+    return false;
+}

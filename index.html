@@ -14,22 +14,70 @@
   
    
 <!-- Everything in sidebar for options panel -->
+<!-- MAKE THEM NOT MOvE!! -->
+<!-- Make first two required-->
 
-<div class="optionspanel"></div>
+<div class="optionspanel">
+
     <div class="dropdown">
-        <button class="button1">B++ or Heap Sort?⌄</button>
+        <button class="buttonbig">B++ or Heap Sort?⌄</button>
         <div class="options">
-            <p onclick="addtojsonfromdropdown">B++ tree</p>
-            <p onclick="addtojsonfromdropdown">Heap sort</p>
+            <button class="buttonoption" onclick="dropdowntoarray(0,0)">B++ tree</p>
+            <button class="buttonoption" onclick="dropdowntoarray(1,0)">Heap sort</p>
         </div>
     </div>
 
 
      <div class="dropdown">
-        <button class="button1">Sort By⌄</button>
+        <button class="buttonbig">Sort By⌄</button>
+        <div class="options">
+            <button class="buttonoption" onclick="dropdowntoarray(1,1)">Horsepower</p>
+            <button class="buttonoption" onclick="dropdowntoarray(2,1)">Year</p>
+            <button class="buttonoption" onclick="dropdowntoarray(3,1)">Gas Mileage</p>
+        </div>
+    </div>
+
+<!--Actually pass all of these on the final button click...?-->
+    
+    <div class="inputcontainer">
+        <p>Insert range of Gas Mileages</p>
+        <input type="text" id="gm1" placeholder="Gas mileage 1" size="5% ">
+        <input type="text" id="gm2" placeholder="Gas mileage 2" size="5%" >
+    </div>
+
+    <div class="inputcontainer">
+        <p>Insert range of Horsepower</p>
+        <input type="text" id="hp1" placeholder="Horsepower 1" size="5% ">
+        <input type="text" id="hp2" placeholder="Horsepower 2" size="5%" >
+    </div>
+
+    <div class="dropdown">
+        <button class="buttonbig">Driveline⌄</button>
+        <div class="options">
+            <button class="buttonoption" onclick="dropdowntoarray(1,6)">All-wheel</p>
+            <button class="buttonoption" onclick="dropdowntoarray(2,6)">Front-wheel</p>
+            <button class="buttonoption" onclick="dropdowntoarray(3,6)">Rear-wheel</p>
+        </div>
     </div>
 
 
+     <div class="dropdown">
+        <button class="buttonbig">Brand⌄</button>
+        <div class="options">
+            <button class="buttonoption" onclick="dropdowntoarray(1,7)">Honda</p>
+            <button class="buttonoption" onclick="dropdowntoarray(2,7)">Toyota</p>
+            <button class="buttonoption" onclick="dropdowntoarray(3,7)">Ford</p>
+            <button class="buttonoption" onclick="dropdowntoarray(4,7)">Volkswagen</p>
+            <button class="buttonoption" onclick="dropdowntoarray(5,7)">Hyundai</p>
+            <button class="buttonoption" onclick="dropdowntoarray(6,7)">Nissan</p>
+            <button class="buttonoption" onclick="dropdowntoarray(7,7)">Kia</p>
+            <button class="buttonoption" onclick="dropdowntoarray(8,7)">Chevrolet</p>
+        </div>
+    </div>
+
+    <button class="buttonbig" onclick="arraytojson()">Submit</button>
+        
+</div>
 
  <!-- If Run button clicked, add everything to a json file and run the c++ file -->
 
@@ -49,22 +97,30 @@ body {
     }
 
 .optionspanel {
+    margin-top: 5%;
     margin-left: 30px;
-    width:300px;
+    height:95%;
+    width:15%;
     padding: 50px;
-    background-color: white;
+    background-color:darkseagreen;
     color: black;
-    display:inline;
+    display:block;
     flex-wrap:balance;
+    border-color: black;
+    border-radius: 3%;
+    border-style: solid;
 }
 
 .dropdown{
-    background-color: white;
     color: black;
     flex-wrap:balance;
     display:block;
-    padding-top:40px;
-    margin-left:5%;
+}
+
+.inputcontainer{
+    color: black;
+    flex-wrap:balance;
+    display:inline;
 }
 
 .options {
@@ -77,11 +133,17 @@ body {
     display:block;
 }
 
-.button1 {
+.buttonbig {
     background-color: white;
     color: black;
     font-size:large;
     display:block;
+    width:150px;
+    
+}
+.buttonoption {
+    background-color: white;
+    color: black;
 }
 
 </style>
