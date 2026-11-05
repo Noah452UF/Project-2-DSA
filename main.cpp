@@ -110,7 +110,7 @@ void writeResults(const vector<Car>& topCars, string& time, const string& filena
         carJson["Engine Information"]["Hybrid"] = car.engine.hybrid;
         carJson["Engine Information"]["Number of Forward Gears"] = car.engine.gears;
         carJson["Engine Information"]["Transmission"] = car.engine.transmission;
-        carJson["Engine Information"]["Engine Statistics"]["HorsePower"] = car.engine.stats.horsepower;
+        carJson["Engine Information"]["Engine Statistics"]["Horsepower"] = car.engine.stats.horsepower;
         carJson["Engine Information"]["Engine Statistics"]["Torque"] = car.engine.stats.torque;
 
         carJson["Fuel Information"]["City mpg"] = car.fuel.mpg_city;
@@ -126,12 +126,18 @@ void writeResults(const vector<Car>& topCars, string& time, const string& filena
         resultsJson.push_back(carJson);
     }
 
-    // add time to resultsJson
-    resultsJson["Time"] = time;
-
     ofstream outFile("results.json");
     outFile << resultsJson.dump(4);
     outFile.close();
+
+    // add time to time.json
+    json timeJson;
+    timeJson["Time"] = time;
+    ofstream timeFile("time.json");
+    timeFile << timeJson.dump(4);
+    timeFile.close();
+
+
 
 }
 
