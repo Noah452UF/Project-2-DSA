@@ -1,0 +1,152 @@
+[
+    {
+        "Dimensions": {
+            "Height": 212,
+            "Length": 123,
+            "Width": 135
+        },
+        "Engine Information": {
+            "Driveline": "Rear-wheel drive",
+            "Engine Statistics": {
+                "Horsepower": 638,
+                "Torque": 604
+            },
+            "Engine Type": "Chevrolet 6.2L 8 Cylinder 638 hp 604 ft-lbs S-charged",
+            "Hybrid": true,
+            "Number of Forward Gears": 6,
+            "Transmission": "6 Speed Manual"
+        },
+        "Fuel Information": {
+            "City mpg": 14,
+            "Fuel Type": "Gasoline",
+            "Highway mpg": 21
+        },
+        "Identification": {
+            "Classification": "Manual transmission",
+            "ID": "2012 Chevrolet Corvette ZR1 1ZR",
+            "Make": "Chevrolet",
+            "Model Year": "2012 Chevrolet Corvette ZR1",
+            "Year": 2012
+        }
+    },
+    {
+        "Dimensions": {
+            "Height": 158,
+            "Length": 148,
+            "Width": 19
+        },
+        "Engine Information": {
+            "Driveline": "Four-wheel drive",
+            "Engine Statistics": {
+                "Horsepower": 166,
+                "Torque": 162
+            },
+            "Engine Type": "Suzuki 2.4L 4 Cylinder 166 hp 162 ft-lbs",
+            "Hybrid": true,
+            "Number of Forward Gears": 4,
+            "Transmission": "4 Speed Automatic"
+        },
+        "Fuel Information": {
+            "City mpg": 19,
+            "Fuel Type": "Gasoline",
+            "Highway mpg": 23
+        },
+        "Identification": {
+            "Classification": "Automatic transmission",
+            "ID": "2011 Suzuki Grand Vitara Limited 4WD",
+            "Make": "Suzuki",
+            "Model Year": "2011 Suzuki Grand Vitara",
+            "Year": 2011
+        }
+    },
+    {
+        "Dimensions": {
+            "Height": 200,
+            "Length": 210,
+            "Width": 110
+        },
+        "Engine Information": {
+            "Driveline": "Rear-wheel drive",
+            "Engine Statistics": {
+                "Horsepower": 315,
+                "Torque": 330
+            },
+            "Engine Type": "BMW 3.0L 6 cylinder 315hp 330 ft-lbs Turbo",
+            "Hybrid": true,
+            "Number of Forward Gears": 6,
+            "Transmission": "6 Speed Automatic Select Shift"
+        },
+        "Fuel Information": {
+            "City mpg": 17,
+            "Fuel Type": "Gasoline",
+            "Highway mpg": 25
+        },
+        "Identification": {
+            "Classification": "Automatic transmission",
+            "ID": "2012 BMW 740i Sedan",
+            "Make": "BMW",
+            "Model Year": "2012 BMW 7 Series",
+            "Year": 2012
+        }
+    },
+    {
+        "Dimensions": {
+            "Height": 148,
+            "Length": 148,
+            "Width": 19
+        },
+        "Engine Information": {
+            "Driveline": "Rear-wheel drive",
+            "Engine Statistics": {
+                "Horsepower": 166,
+                "Torque": 162
+            },
+            "Engine Type": "Suzuki 2.4L 4 Cylinder 166 hp 162 ft-lbs",
+            "Hybrid": true,
+            "Number of Forward Gears": 4,
+            "Transmission": "4 Speed Automatic"
+        },
+        "Fuel Information": {
+            "City mpg": 19,
+            "Fuel Type": "Gasoline",
+            "Highway mpg": 25
+        },
+        "Identification": {
+            "Classification": "Automatic transmission",
+            "ID": "2011 Suzuki Grand Vitara Limited",
+            "Make": "Suzuki",
+            "Model Year": "2011 Suzuki Grand Vitara",
+            "Year": 2011
+        }
+    },
+    {
+        "Dimensions": {
+            "Height": 175,
+            "Length": 235,
+            "Width": 39
+        },
+        "Engine Information": {
+            "Driveline": "Front-wheel drive",
+            "Engine Statistics": {
+                "Horsepower": 200,
+                "Torque": 186
+            },
+            "Engine Type": "Kia 2.4L 4 Cylinder 200 hp 186 ft-lbs",
+            "Hybrid": true,
+            "Number of Forward Gears": 6,
+            "Transmission": "6 Speed Automatic Select Shift"
+        },
+        "Fuel Information": {
+            "City mpg": 24,
+            "Fuel Type": "Gasoline",
+            "Highway mpg": 34
+        },
+        "Identification": {
+            "Classification": "Automatic transmission",
+            "ID": "2011 Kia Optima EX",
+            "Make": "Kia",
+            "Model Year": "2011 Kia Optima",
+            "Year": 2011
+        }
+    }
+]
