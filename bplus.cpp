@@ -166,7 +166,10 @@ void BPlus::insert(const Car &c) {
         child = parent;
     }
     // Replace root if necessary.
-    root = split(nullptr, child, 0);
+    Node* top = split(nullptr, child, 0);
+    if (top != nullptr) {
+        root = top;
+    }
 }
 
 Node* BPlus::getHead() {
