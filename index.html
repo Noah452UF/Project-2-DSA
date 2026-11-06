@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Choices</title>
-    <script src="options.js" defer></script>
+    <script src="/options.js" defer></script>
   </head>
   <body>
 
@@ -20,10 +20,11 @@
 <div class="optionspanel">
 
     <div class="dropdown">
+        
         <button class="buttonbig">B++ or Heap Sort?⌄</button>
         <div class="options">
-            <button class="buttonoption" onclick="dropdowntoarray(0,0)">B++ tree</p>
-            <button class="buttonoption" onclick="dropdowntoarray(1,0)">Heap sort</p>
+            <button class="buttonoption" onclick="dropdowntoarray(0,0)">B++ tree</button>
+            <button class="buttonoption" onclick="dropdowntoarray(1,0)">Heap sort</button>
         </div>
     </div>
 
@@ -31,9 +32,9 @@
      <div class="dropdown">
         <button class="buttonbig">Sort By⌄</button>
         <div class="options">
-            <button class="buttonoption" onclick="dropdowntoarray(1,1)">Horsepower</p>
-            <button class="buttonoption" onclick="dropdowntoarray(2,1)">Year</p>
-            <button class="buttonoption" onclick="dropdowntoarray(3,1)">Gas Mileage</p>
+            <button class="buttonoption" onclick="dropdowntoarray(1,1)">Horsepower</button>
+            <button class="buttonoption" onclick="dropdowntoarray(2,1)">Year</button>
+            <button class="buttonoption" onclick="dropdowntoarray(3,1)">Gas Mileage</button>
         </div>
     </div>
 
@@ -54,9 +55,9 @@
     <div class="dropdown">
         <button class="buttonbig">Driveline⌄</button>
         <div class="options">
-            <button class="buttonoption" onclick="dropdowntoarray(1,6)">All-wheel</p>
-            <button class="buttonoption" onclick="dropdowntoarray(2,6)">Front-wheel</p>
-            <button class="buttonoption" onclick="dropdowntoarray(3,6)">Rear-wheel</p>
+            <button class="buttonoption" onclick="dropdowntoarray(1,6)">All-wheel</button>
+            <button class="buttonoption" onclick="dropdowntoarray(2,6)">Front-wheel</button>
+            <button class="buttonoption" onclick="dropdowntoarray(3,6)">Rear-wheel</button>
         </div>
     </div>
 
@@ -64,14 +65,14 @@
      <div class="dropdown">
         <button class="buttonbig">Brand⌄</button>
         <div class="options">
-            <button class="buttonoption" onclick="dropdowntoarray(1,7)">Honda</p>
-            <button class="buttonoption" onclick="dropdowntoarray(2,7)">Toyota</p>
-            <button class="buttonoption" onclick="dropdowntoarray(3,7)">Ford</p>
-            <button class="buttonoption" onclick="dropdowntoarray(4,7)">Volkswagen</p>
-            <button class="buttonoption" onclick="dropdowntoarray(5,7)">Hyundai</p>
-            <button class="buttonoption" onclick="dropdowntoarray(6,7)">Nissan</p>
-            <button class="buttonoption" onclick="dropdowntoarray(7,7)">Kia</p>
-            <button class="buttonoption" onclick="dropdowntoarray(8,7)">Chevrolet</p>
+            <button class="buttonoption" onclick="dropdowntoarray(1,7)">Honda</button>
+            <button class="buttonoption" onclick="dropdowntoarray(2,7)">Toyota</button>
+            <button class="buttonoption" onclick="dropdowntoarray(3,7)">Ford</button>
+            <button class="buttonoption" onclick="dropdowntoarray(4,7)">Volkswagen</button>
+            <button class="buttonoption" onclick="dropdowntoarray(5,7)">Hyundai</button>
+            <button class="buttonoption" onclick="dropdowntoarray(6,7)">Nissan</button>
+            <button class="buttonoption" onclick="dropdowntoarray(7,7)">Kia</button>
+            <button class="buttonoption" onclick="dropdowntoarray(8,)">Chevrolet</button>
         </div>
     </div>
 
@@ -139,11 +140,20 @@ body {
     font-size:large;
     display:block;
     width:150px;
+    border-radius: 3px;
+    border-style: solid;
+    margin-top:30px;
     
 }
 .buttonoption {
     background-color: white;
-    color: black;
+    border-color: grey;
+    font-size:large;
+    display:block;
+    width:150px;
+    height:30px;
+    border-radius: 3px;
+    border-style: solid;
 }
 
 </style>
