@@ -1,7 +1,33 @@
-
 let parameters = [-1,-1,-1,-1,-1,-1,-1,-1];
 const loadnum=10;
 let inputJSON = {};
+
+//maybe let them input number of entries since its dynamic anyways?
+
+//gets data for the table
+async function gettabledata(){
+    const towrite= document.getElementById("carrow");
+    const val=2;
+
+    const wholejson= await fetch("cars.json");
+    const cars=await wholejson.json();
+
+    for(let i=0;i<10;i++){
+        //cars["Identification"]["Classification"]
+        const car= `<tr>
+            <th>${cars[i]["Identification"]["ID"]}</th>
+            <th>${cars[i]["Engine Information"]["Engine Statistics"]["Horsepower"]}</th>
+            <th>${val}</th>
+        </tr>`;
+        towrite.innerHTML+=car;
+    }
+
+
+}
+
+
+
+
 
 
 //update array depending on which button is pushed and where in the array to insert
@@ -12,10 +38,8 @@ function dropdowntoarray(parameter, num){
 
 
 //update array based on whats entered into the field
-
-
 async function arraytojson(){
-    console.log("called");
+    console.log("ArraytoJSON");
     //should be neagtive 1 if theres no parameters
     parameters[2]=document.getElementById("gm1").value;
     parameters[3]=document.getElementById("gm2").value;
@@ -41,6 +65,9 @@ async function arraytojson(){
         body: JSON.stringify(inputJSON)
     });
     
+
+
+
         
     //runs the c++ code...somehow.
 }

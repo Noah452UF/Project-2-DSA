@@ -3,6 +3,10 @@
 const fs=require('fs');
 const http = require('http');
 
+//import cars from './cars.json' with {type:'json'};
+
+
+
 
 const server = http.createServer((req,res) => {
     const{method, url}=req;
@@ -48,7 +52,6 @@ const server = http.createServer((req,res) => {
 });
 
 //exec. c++ code here
-
 server.listen(3000,'localhost', () => {
     console.log("http://localhost:3000");
 });
