@@ -8,45 +8,55 @@
     <script src="/options.js" defer></script>
   </head>
 
-  <body>
+<body>
 
-<!-- Make first two required-->
-
-
-<!-- Everything in sidebar for options  -->
+<!-- Options panel- sets parameters in options.js -->
 <div class="optionspanel"> 
 
     <div class="innerpanelcontainer">
         <h2>Required:</h2>
         <p>B++ or Heap Sort?<p>
         <div class="options">
-            <button class="buttonoption" onclick="dropdowntoarray(0,0)">B++ tree</button>
-            <button class="buttonoption" onclick="dropdowntoarray(1,0)">Heap sort</button>
+            <div class="radio">
+                <input type="radio" name="borh" onclick="dropdowntoarray(0,0)">B++ tree</input>
+            </div>
+            <div class="radio">
+                <input type="radio" name="borh" onclick="dropdowntoarray(1,0)">Heap sort</input>
+            </div>
         </div>
 
-        <p>Sort By</p>
+        <p>Sort By:</p>
         <div class="options">
-            <button class="buttonoption" onclick="dropdowntoarray(1,1)">Horsepower</button>
-            <button class="buttonoption" onclick="dropdowntoarray(2,1)">Year</button>
-            <button class="buttonoption" onclick="dropdowntoarray(3,1)">Gas Mileage</button>
+            <div class="radio">
+                <input type="radio" name="sort" onclick="dropdowntoarray(1,1)">Horsepower</input>
+            </div>
+            <div class="radio">
+                <input type="radio" name="sort" onclick="dropdowntoarray(2,1)">Year</input>
+            </div>
+            <div class="radio">
+                <input type="radio" name="sort" onclick="dropdowntoarray(3,1)">Gas Mileage</input>
+            </div>
         </div>
     </div>
 
     <div class="innerpanelcontainer">
     <h2>Optional:</h2>
     <div class="inputcontainer">
-        <p>Year</p>
+        <p>Year:</p>
         <input type="text" id="y" placeholder="Year" size="5% ">
     </div>
     
     <div class="inputcontainer">
-        <p>Insert range of Gas Mileages</p>
-        <input type="text" id="gm1" placeholder="Gas mileage 1" size="5% ">
-        <input type="text" id="gm2" placeholder="Gas mileage 2" size="5%" >
+        <p>Gas Mileage Range:</p>
+        <div class ="rangediv">
+            <input type="text" id="gm1" placeholder="Gas mileage 1" size="5% ">
+            <p>-</p>
+            <input type="text" id="gm2" placeholder="Gas mileage 2" size="5%" >
+        </div>
     </div>
 
     <div class="inputcontainer">
-        <p>Insert range of Horsepower</p>
+        <p>Horsepower Range:</p>
         <div class ="rangediv">
             <input type="text" id="hp1" placeholder="Horsepower 1" size="5% ">
             <p>-</p>
@@ -54,53 +64,75 @@
         </div>
     </div>
 
+
     <p>Driveline</p>
     <div class="options">
-        <input type="radio" name="driveline" onclick="dropdowntoarray(1,7)">All-wheel</input>
-        <input type="radio" name="driveline" onclick="dropdowntoarray(2,7)">Front-wheel</input>
-        <input type="radio" name="driveline" onclick="dropdowntoarray(3,7)">Rear-wheel</input>
+        <div class="radio">
+            <input type="radio" name="driveline" onclick="dropdowntoarray(1,7)">All-wheel</input>
+        </div>
+        <div class="radio">
+            <input type="radio" name="driveline" onclick="dropdowntoarray(2,7)">Front-wheel</input>
+        </div>
+        <div class="radio">
+            <input type="radio" name="driveline" onclick="dropdowntoarray(3,7)">Rear-wheel</input>
+        </div>
     </div>
 
 
     <p>Brand</p>
     <div class="options">
-        <input type="radio" name="brand" onclick="dropdowntoarray(1,8)">Honda</input>
-        <input type="radio" name="brand" onclick="dropdowntoarray(2,8)">Toyota</input>
-        <input type="radio" name="brand" onclick="dropdowntoarray(3,8)">Ford</input>
-        <input type="radio" name="brand" onclick="dropdowntoarray(4,8)">Volkswagen</input>
-        <input type="radio" name="brand" onclick="dropdowntoarray(5,8)">Hyundai</input>
-        <input type="radio" name="brand" onclick="dropdowntoarray(6,8)">Nissan</input>
-        <input type="radio" name="brand" onclick="dropdowntoarray(7,8)">Kia</input>
-        <input type="radio" name="brand" onclick="dropdowntoarray(8,8)">Chevrolet</input>
+        <div class="radio">
+            <input type="radio" name="brand" onclick="dropdowntoarray(1,8)">Honda</input>
+        </div>
+        <div class="radio">
+            <input type="radio" name="brand" onclick="dropdowntoarray(2,8)">Toyota</input>
+        </div>
+        <div class="radio">
+            <input type="radio" name="brand" onclick="dropdowntoarray(3,8)">Ford</input>
+        </div>
+        <div class="radio">
+            <input type="radio" name="brand" onclick="dropdowntoarray(4,8)">Volkswagen</input>
+        </div>
+        <div class="radio">
+            <input type="radio" name="brand" onclick="dropdowntoarray(5,8)">Hyundai</input>
+        </div>
+        <div class="radio">
+            <input type="radio" name="brand" onclick="dropdowntoarray(6,8)">Nissan</input>
+        </div>
+        <div class="radio">
+            <input type="radio" name="brand" onclick="dropdowntoarray(7,8)">Kia</input>
+        </div>
+        <div class="radio">
+            <input type="radio" name="brand" onclick="dropdowntoarray(8,8)">Chevrolet</input>
+        </div>
     </div>
 </div>
 
  <!-- If Run button clicked, add everything to a json file and run the c++ file -->
-    <button class="buttonoption" onclick="arraytojson()">Submit</button>
+    <div class="options">
+        <button class="buttonoption" onclick="arraytojson()" style="display: flex; align-items: center; margin: auto; margin-top: 10px;">Submit</button>
+    </div>
 </div>
 
 
-
+<!-- Main panel where table is displayed-->
 <div class="mainpanel">
-
-    <h1>Top 10 Options</h1>
-    <h1 id="time"></h1>
-    <table width="90%">
-        <tr>
+    <h1 style="margin-left: 15px;">Top 5 Options for your parameters:</h1>
+    <table width="90%" style="margin-left: 20px;">
+        <tr style="background-color: rgb(143, 143, 143);">
             <th>Name of car</th>
             <th>Horsepower</th>
-            <th>Et Cetera</th>
+            <th>Gas Mileage</th>
+            <th>Driveline</th>
         </tr>
         
     <tbody id="carrow"></tbody>
     </table>
+    <h1 id="time" style="margin-left: 15px;"></h1>
 </div>
 
 
-
 <style>    
-
-
 body {
     background-color: rgb(255, 196, 86);
     color: black;
@@ -110,25 +142,14 @@ body {
     width: 100%;
     height: 100%;
     display:flex;
+    font-family: "pixel2";
 }
 
 th, td{
     border-color: black;
     border-radius: 3%;
     border-style: solid;
-
 }
-
-h1{
-
-}
-
-p{
-
-}
-
-
-
 
 .optionspanel {
     margin-left: 3%;
@@ -170,21 +191,32 @@ p{
 }
 
 .options{
-    
+    font-size:25px;
+    font-family: "pixel";
+    display:block;
 }
 
 .rangediv{
-    display:inline;
+    display:flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.radio{
+    display:flex;
 }
 
 .options .buttonoption {
-    background-color: rgb(103, 102, 101);
+    background-color: rgb(143, 143, 143);
     border-color: grey;
     font-size:large;
     width:auto;
     height:30px;
     border-radius: 3px;
     border-style: solid;
+    
+    font-size:25px;
+    font-family: "pixel";
 }
 
 
@@ -192,11 +224,29 @@ p{
     background-color:rgb(255, 181, 8);
 }
 
-.options input[type="radio"]:checked+ .buttonoption{
-    background-color:rgb(255, 181, 8);
+.options input[type="radio"]{
+    font-family: "pixel";
+    accent-color:rgb(255, 181, 8) ;
 }
+
+.options input[type="text"]{
+   background-color: rgb(183, 183, 183);
+   size: 70px;
+}
+
+@font-face {
+    font-family: "pixel";
+    src: url("/assets/pixelpurl.ttf");
+}
+
+@font-face {
+    font-family: "pixel2";
+    src: url("/assets/PixelEmulator.ttf");
+}
+
 
 </style>
 
 </body>
+
 </html>
