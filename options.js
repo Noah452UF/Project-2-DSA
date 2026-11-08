@@ -1,33 +1,33 @@
-let parameters = [-1,-1,-1,-1,-1,-1,-1,-1];
+let parameters = [-1,-1,-1,-1,-1,-1,-1,-1,-1];
 const loadnum=10;
 let inputJSON = {};
-
-//maybe let them input number of entries since its dynamic anyways?
+let done=false
 
 //gets data for the table
 async function gettabledata(){
     const towrite= document.getElementById("carrow");
-    const val=2;
-
-    const wholejson= await fetch("cars.json");
+    const wholejson= await fetch("results.json");
     const cars=await wholejson.json();
-
-    for(let i=0;i<10;i++){
+    towrite.innerHTML="";
+    for(let i=0;i<cars.length;i++){
         //cars["Identification"]["Classification"]
         const car= `<tr>
             <th>${cars[i]["Identification"]["ID"]}</th>
             <th>${cars[i]["Engine Information"]["Engine Statistics"]["Horsepower"]}</th>
-            <th>${val}</th>
+            <th>${cars[i]["Fuel Information"]["City mpg"]}</th>
+            <th>${cars[i]["Engine Information"]["Driveline"]}</th>
         </tr>`;
         towrite.innerHTML+=car;
     }
+    if(cars.length===0)
+        alert("There were no results matching your parameters. Please refresh and try again.")
 
+    const timejson= await fetch("time.json");
+    const time=await timejson.json();
+    const timewrite= document.getElementById("time");
+    timewrite.innerHTML=`${time["Time"]}`;
 
 }
-
-
-
-
 
 
 //update array depending on which button is pushed and where in the array to insert
@@ -39,36 +39,54 @@ function dropdowntoarray(parameter, num){
 
 //update array based on whats entered into the field
 async function arraytojson(){
-    console.log("ArraytoJSON");
-    //should be neagtive 1 if theres no parameters
-    parameters[2]=document.getElementById("gm1").value;
-    parameters[3]=document.getElementById("gm2").value;
-    parameters[4]=document.getElementById("hp1").value;
-    parameters[5]=document.getElementById("hp2").value;
+    if(done)
+        alert("Please refresh the page to submit again!")
+    else{
+        console.log("ArraytoJSON");
+        //should be neagtive 1 if theres no parameters
+        parameters[3]=document.getElementById("hp1").value;
+        parameters[4]=document.getElementById("hp2").value;
+        parameters[5]=document.getElementById("gm1").value;
+        parameters[6]=document.getElementById("gm2").value;
 
-    for(const i in parameters){
-        console.log(parameters[i]);
+        for(const i in parameters){
+            console.log(parameters[i]);
+            if(parameters[i]==="")
+                parameters[i]=-1;
+            else
+                parameters[i]=parseInt(parameters[i]);
+        }
+
+        inputJSON["isB++"] = parameters[0];
+        inputJSON["year"] = parameters[1];
+        inputJSON["sortby"] = parameters[2];
+        inputJSON["horsepow1"] = parameters[3];
+        inputJSON["horsepow2"] = parameters[4];
+        inputJSON["gasmileage1"] = parameters[5];
+        inputJSON["gasmileage2"] = parameters[6];
+        inputJSON["driveline"] = parameters[7];
+        inputJSON["Brand"] = parameters[8];
+
+        if(parameters[0]===-1||parameters[2]===-1)
+            alert("You may not have selected an option for \"B++ or Heap Sort?\" or \"Sort By.\" Continuing may give strange results.\nPlease refresh the page and try again")
+
+        //post request that writes the requirements to a json
+        const response= await fetch("http://localhost:3000/options",{
+            method: "POST",
+            body: JSON.stringify(inputJSON)
+        });
+        console.log("requirements.json finished")
+
+        //post request that runs the c++ code
+        const exfile= await fetch("http://localhost:3000/execfile",{
+            method: "POST",
+        });
+
+        console.log("c++ execution finished")
+
+        await gettabledata()
+        done=true
+
     }
-
-    inputJSON["isB++"] = parameters[0];
-    inputJSON["sortby"] = parameters[1];
-    inputJSON["horsepow1"] = parameters[2];
-    inputJSON["horsepow2"] = parameters[3];
-    inputJSON["gasmileage1"] = parameters[4];
-    inputJSON["gasmileage2"] = parameters[5];
-    inputJSON["driveline"] = parameters[6];
-    inputJSON["brand"] = parameters[7];
-
-    //post request here
-    const response= await fetch("http://localhost:3000/options",{
-        method: "POST",
-        body: JSON.stringify(inputJSON)
-    });
-    
-
-
-
-        
-    //runs the c++ code...somehow.
 }
 
