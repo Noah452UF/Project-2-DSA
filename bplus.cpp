@@ -95,10 +95,31 @@ Node *BPlus::split(Node *parent, Node* child, const int& child_ind){
 
     Node* child_left = new Node(left, child->leaf);
     Node* child_right = new Node(right, child->leaf);
+    // give the nodes directions if they are not leaf nodes
+    if (!child->leaf) {
+        for (int i = 0; i <= mid; i++) {
+            child_left->directions.push_back(child->directions[i]);
+        }
+        for (int i = mid + 1; i < child->directions.size(); i++) {
+            child_right->directions.push_back(child->directions[i]);
+            }
+        }
     child_left->prev = child->prev;
     child_left->next = child_right;
     child_right->prev = child_left;
     child_right->next = child->next;
+
+    // update pointers of the nodes next to them
+    if (child->leaf == 1) {
+        if (child->prev != nullptr) {
+            child->prev->next = child_left;
+        }
+        if (child->next != nullptr) {
+            child->next->prev = child_right;
+        }
+
+    }
+
     // Check if children are new start or head of leaf linked list
     if (child_left->leaf == 1 && child_left->prev == nullptr) {
         head = child_left;
@@ -121,7 +142,7 @@ Node *BPlus::split(Node *parent, Node* child, const int& child_ind){
         int i;
         for (i = 0; i < parent->arr.size(); i++) {
             if (operation(mid_car, parent->arr[i])) {
-                parent->arr.insert(parent->arr.begin(), mid_car);
+                parent->arr.insert(parent->arr.begin() + child_ind, mid_car);
                 break;
             }
         }
