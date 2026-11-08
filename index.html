@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Choices</title>
     <script src="/options.js" defer></script>
   </head>
+
   <body>
 
-
-
-    
-  
-   
-<!-- Everything in sidebar for options panel -->
-<!-- MAKE THEM NOT MOvE!! -->
 <!-- Make first two required-->
 
-<div class="optionspanel">
 
-    <div class="dropdown">
-        
-        <button class="buttonbig">B++ or Heap Sort?⌄</button>
+<!-- Everything in sidebar for options  -->
+<div class="optionspanel"> 
+
+    <div class="innerpanelcontainer">
+        <h2>Required:</h2>
+        <p>B++ or Heap Sort?<p>
         <div class="options">
             <button class="buttonoption" onclick="dropdowntoarray(0,0)">B++ tree</button>
             <button class="buttonoption" onclick="dropdowntoarray(1,0)">Heap sort</button>
         </div>
-    </div>
 
-
-     <div class="dropdown">
-        <button class="buttonbig">Sort By⌄</button>
+        <p>Sort By</p>
         <div class="options">
             <button class="buttonoption" onclick="dropdowntoarray(1,1)">Horsepower</button>
             <button class="buttonoption" onclick="dropdowntoarray(2,1)">Year</button>
@@ -38,7 +32,12 @@
         </div>
     </div>
 
-<!--Actually pass all of these on the final button click...?-->
+    <div class="innerpanelcontainer">
+    <h2>Optional:</h2>
+    <div class="inputcontainer">
+        <p>Year</p>
+        <input type="text" id="y" placeholder="Year" size="5% ">
+    </div>
     
     <div class="inputcontainer">
         <p>Insert range of Gas Mileages</p>
@@ -48,45 +47,45 @@
 
     <div class="inputcontainer">
         <p>Insert range of Horsepower</p>
-        <input type="text" id="hp1" placeholder="Horsepower 1" size="5% ">
-        <input type="text" id="hp2" placeholder="Horsepower 2" size="5%" >
-    </div>
-
-    <div class="dropdown">
-        <button class="buttonbig">Driveline⌄</button>
-        <div class="options">
-            <button class="buttonoption" onclick="dropdowntoarray(1,6)">All-wheel</button>
-            <button class="buttonoption" onclick="dropdowntoarray(2,6)">Front-wheel</button>
-            <button class="buttonoption" onclick="dropdowntoarray(3,6)">Rear-wheel</button>
+        <div class ="rangediv">
+            <input type="text" id="hp1" placeholder="Horsepower 1" size="5% ">
+            <p>-</p>
+            <input type="text" id="hp2" placeholder="Horsepower 2" size="5%" >
         </div>
     </div>
 
-
-     <div class="dropdown">
-        <button class="buttonbig">Brand⌄</button>
-        <div class="options">
-            <button class="buttonoption" onclick="dropdowntoarray(1,7)">Honda</button>
-            <button class="buttonoption" onclick="dropdowntoarray(2,7)">Toyota</button>
-            <button class="buttonoption" onclick="dropdowntoarray(3,7)">Ford</button>
-            <button class="buttonoption" onclick="dropdowntoarray(4,7)">Volkswagen</button>
-            <button class="buttonoption" onclick="dropdowntoarray(5,7)">Hyundai</button>
-            <button class="buttonoption" onclick="dropdowntoarray(6,7)">Nissan</button>
-            <button class="buttonoption" onclick="dropdowntoarray(7,7)">Kia</button>
-            <button class="buttonoption" onclick="dropdowntoarray(8,)">Chevrolet</button>
-        </div>
+    <p>Driveline</p>
+    <div class="options">
+        <input type="radio" name="driveline" onclick="dropdowntoarray(1,7)">All-wheel</input>
+        <input type="radio" name="driveline" onclick="dropdowntoarray(2,7)">Front-wheel</input>
+        <input type="radio" name="driveline" onclick="dropdowntoarray(3,7)">Rear-wheel</input>
     </div>
 
-    <button class="buttonbig" onclick="arraytojson()">Submit</button>
+
+    <p>Brand</p>
+    <div class="options">
+        <input type="radio" name="brand" onclick="dropdowntoarray(1,8)">Honda</input>
+        <input type="radio" name="brand" onclick="dropdowntoarray(2,8)">Toyota</input>
+        <input type="radio" name="brand" onclick="dropdowntoarray(3,8)">Ford</input>
+        <input type="radio" name="brand" onclick="dropdowntoarray(4,8)">Volkswagen</input>
+        <input type="radio" name="brand" onclick="dropdowntoarray(5,8)">Hyundai</input>
+        <input type="radio" name="brand" onclick="dropdowntoarray(6,8)">Nissan</input>
+        <input type="radio" name="brand" onclick="dropdowntoarray(7,8)">Kia</input>
+        <input type="radio" name="brand" onclick="dropdowntoarray(8,8)">Chevrolet</input>
+    </div>
 </div>
 
+ <!-- If Run button clicked, add everything to a json file and run the c++ file -->
+    <button class="buttonoption" onclick="arraytojson()">Submit</button>
+</div>
 
 
 
 <div class="mainpanel">
 
     <h1>Top 10 Options</h1>
-    <h1>Time:</h1>
-    <table>
+    <h1 id="time"></h1>
+    <table width="90%">
         <tr>
             <th>Name of car</th>
             <th>Horsepower</th>
@@ -98,17 +97,12 @@
 </div>
 
 
-<button class="buttonbig" onclick="console.log('CLicked'), gettabledata()">tableloadtest</button>
- <!-- If Run button clicked, add everything to a json file and run the c++ file -->
 
-
-<!-- Display in a table once loaded-->
-    
 <style>    
 
 
 body {
-    background-color: white;
+    background-color: rgb(255, 196, 86);
     color: black;
     margin: 0px;
     position: relative;
@@ -117,6 +111,7 @@ body {
     height: 100%;
     display:flex;
 }
+
 th, td{
     border-color: black;
     border-radius: 3%;
@@ -124,37 +119,48 @@ th, td{
 
 }
 
+h1{
+
+}
+
+p{
+
+}
+
+
+
 
 .optionspanel {
-    margin: 3%;
-    height:95dvh;
-    width:25dvh;
+    margin-left: 3%;
+    margin-top: 3%;
+    height:90dvh;
+    width:30dvh;
     padding:10px;
-    
+    overflow: auto;
     align-items: center;
-    background-color:darkseagreen;
+    background-color:rgb(103, 102, 101);
     border-color: black;
-    align-items: center;
-    border-radius: 3%;
     border-style: solid;
 }
+
 .mainpanel {
     margin: 3%;
-    height:95dvh;
-    width:150dvh;
-    background-color:darkturquoise;
+    height:90dvh;
+    width:70dvw;
+    background-color:rgb(103, 102, 101);
     align-items: center;
-    
-
+    display: block;
     border-color: black;
-    border-radius: 3%;
     border-style: solid;
 }
 
-.dropdown{
+.innerpanelcontainer{
     color: black;
     flex-wrap:balance;
     display:block;
+    border-color: black;
+    border-style: solid;
+    padding:10px;
 }
 
 .inputcontainer{
@@ -163,36 +169,31 @@ th, td{
     display:inline;
 }
 
-.options {
-    color:black;
-    display:none;
-    font-size:large;
-}
-
-.dropdown:hover .options {
-    display:block;
-}
-
-.buttonbig {
-    background-color: white;
-    color: black;
-    font-size:large;
-    display:block;
-    width:150px;
-    border-radius: 3px;
-    border-style: solid;
-    margin-top:30px;
+.options{
     
 }
-.buttonoption {
-    background-color: white;
+
+.rangediv{
+    display:inline;
+}
+
+.options .buttonoption {
+    background-color: rgb(103, 102, 101);
     border-color: grey;
     font-size:large;
-    display:block;
-    width:150px;
+    width:auto;
     height:30px;
     border-radius: 3px;
     border-style: solid;
+}
+
+
+.options .buttonoption:hover {
+    background-color:rgb(255, 181, 8);
+}
+
+.options input[type="radio"]:checked+ .buttonoption{
+    background-color:rgb(255, 181, 8);
 }
 
 </style>
