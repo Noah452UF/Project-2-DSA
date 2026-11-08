@@ -138,16 +138,10 @@ Node *BPlus::split(Node *parent, Node* child, const int& child_ind){
         // Delete pointer to old child
         parent->directions.erase(parent->directions.begin() + child_ind);
 
-        // Insert middle of child into parent array. Then overwrite the pointer to old child.
-        int i;
-        for (i = 0; i < parent->arr.size(); i++) {
-            if (operation(mid_car, parent->arr[i])) {
-                parent->arr.insert(parent->arr.begin() + child_ind, mid_car);
-                break;
-            }
-        }
-        parent->directions.insert(parent->directions.begin() + i, child_left);
-        parent->directions.insert(parent->directions.begin() + i + 1, child_right);
+        
+        parent->arr.insert(parent->arr.begin() + child_ind, mid_car);
+        parent->directions.insert(parent->directions.begin() + child_ind, child_left);
+        parent->directions.insert(parent->directions.begin() + child_ind + 1, child_right);
     }
 
     // Delete old child
