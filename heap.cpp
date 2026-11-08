@@ -22,7 +22,7 @@ void Heap::heapify_down(const int &root) {
     int c2 = root * 2 + 2;
 
     // Determine if swap is necessary, and if so which one.
-    bool swap = operation(arr[root], arr[c1]) || operation(arr[root], arr[c2]);
+    bool swap = operation(arr[c1], arr[root]) || operation(arr[c2], arr[root]);
     bool left = operation(arr[c1], arr[c2]);
 
     // Swap logic, and further heapify down
