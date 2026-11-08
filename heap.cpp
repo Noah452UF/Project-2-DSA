@@ -21,6 +21,15 @@ void Heap::heapify_down(const int &root) {
     int c1 = root * 2 + 1;
     int c2 = root * 2 + 2;
 
+    // When c1 is out of range, no more heapifying down.
+    // When c2 is out of range, let c2 = c1.
+    if (c1 >= arr.size()-1) {
+        return;
+    }
+    if (c2 >= arr.size()-1) {
+        c2 = c1;
+    }
+
     // Determine if swap is necessary, and if so which one.
     bool swap = operation(arr[c1], arr[root]) || operation(arr[c2], arr[root]);
     bool left = operation(arr[c1], arr[c2]);
