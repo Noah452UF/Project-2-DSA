@@ -44,7 +44,6 @@ async function arraytojson(){
     else{
         console.log("ArraytoJSON");
         //should be neagtive 1 if theres no parameters
-        parameters[2]=document.getElementById("y").value;
         parameters[3]=document.getElementById("hp1").value;
         parameters[4]=document.getElementById("hp2").value;
         parameters[5]=document.getElementById("gm1").value;
@@ -59,8 +58,8 @@ async function arraytojson(){
         }
 
         inputJSON["isB++"] = parameters[0];
-        inputJSON["sortby"] = parameters[1];
-        inputJSON["year"] = parameters[2];
+        inputJSON["year"] = parameters[1];
+        inputJSON["sortby"] = parameters[2];
         inputJSON["horsepow1"] = parameters[3];
         inputJSON["horsepow2"] = parameters[4];
         inputJSON["gasmileage1"] = parameters[5];
@@ -68,7 +67,7 @@ async function arraytojson(){
         inputJSON["driveline"] = parameters[7];
         inputJSON["Brand"] = parameters[8];
 
-        if(parameters[0]===-1||parameters[1]===-1)
+        if(parameters[0]===-1||parameters[2]===-1)
             alert("You may not have selected an option for \"B++ or Heap Sort?\" or \"Sort By.\" Continuing may give strange results.\nPlease refresh the page and try again")
 
         //post request that writes the requirements to a json

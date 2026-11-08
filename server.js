@@ -53,7 +53,7 @@ const server = http.createServer((req,res) => {
         //run after compiling
             exec('cars.exe', (err)=>{
                 if(err)
-                    console.log(err)
+                 console.log(err)
                 res.end()
             });
         });
